@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://finawvscobmo"
+
+[deps]
+
+files=["res://Assets/Data/Name_list.Last Name.translation"]
+
+source_file="res://Assets/Data/Name_list.csv"
+dest_files=["res://Assets/Data/Name_list.Last Name.translation"]
+
+[params]
+
+compress=true
+delimiter=0

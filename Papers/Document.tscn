@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://c86s7wpd52cna"]
+
+[ext_resource type="Texture2D" uid="uid://d2a7344tb50gj" path="res://Assets/Images/Paper1.png" id="1_u5383"]
+[ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_4ne7r"]
+[ext_resource type="Texture2D" uid="uid://ddt0aggvggxic" path="res://Assets/Images/Denied_Stamp.png" id="3_00hpd"]
+[ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="4_ww1bw"]
+[ext_resource type="Script" path="res://Scripts/AddText_maindoc.gd" id="5_baw4g"]
+[ext_resource type="Texture2D" uid="uid://ba7t6mplv6753" path="res://Assets/Images/ACCEPTED_Stamp.png" id="6_ksfky"]
+
+[node name="Document" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -500.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u5383")
+stretch_mode = 2
+script = ExtResource("2_4ne7r")
+
+[node name="Text" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("5_baw4g")
+
+[node name="ExpirationLabel" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 57.0
+offset_right = 47.0
+offset_bottom = 63.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_ww1bw")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+
+[node name="NameLabel" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 91.0
+offset_right = 70.0
+offset_bottom = 98.0
+scale = Vector2(0.970667, 1)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_ww1bw")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+
+[node name="IDLabel" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 77.0
+offset_right = 47.0
+offset_bottom = 83.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_ww1bw")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+
+[node name="DeniedStamp" type="TextureRect" parent="Text"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 52.0
+offset_bottom = 31.0
+mouse_filter = 2
+texture = ExtResource("3_00hpd")
+
+[node name="ApprovedStamp" type="TextureRect" parent="Text"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 52.0
+offset_bottom = 31.0
+mouse_filter = 2
+texture = ExtResource("6_ksfky")
+
+[node name="SexLabel" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 67.0
+offset_right = 33.0
+offset_bottom = 73.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_ww1bw")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false

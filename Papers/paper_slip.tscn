@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8lfw2ewq0pgl"]
+
+[ext_resource type="Texture2D" uid="uid://drxw4oy38yfot" path="res://Assets/Images/Inspecrtion_report.png" id="1_uysnj"]
+[ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="2_5l1mp"]
+[ext_resource type="Script" path="res://Scripts/Draggable_slip.gd" id="2_xnsyi"]
+[ext_resource type="Script" path="res://Scripts/AddText_slip.gd" id="3_lghgd"]
+[ext_resource type="Texture2D" uid="uid://b06yuc7nqm1fp" path="res://Assets/Images/Check.png" id="5_d3hcs"]
+[ext_resource type="Texture2D" uid="uid://4tvdrn68nwk7" path="res://Assets/Images/X.png" id="6_dltbp"]
+
+[node name="PaperSlip" type="TextureRect"]
+z_index = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -500.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uysnj")
+script = ExtResource("2_xnsyi")
+
+[node name="SlipText" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 6.0
+offset_bottom = 6.0
+mouse_filter = 2
+script = ExtResource("3_lghgd")
+
+[node name="slip_text" type="RichTextLabel" parent="SlipText"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 55.0
+offset_bottom = 6.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.396078, 0.396078, 0.396078, 0.764706)
+theme_override_fonts/normal_font = ExtResource("2_5l1mp")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Check1" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 14.0
+texture = ExtResource("5_d3hcs")
+
+[node name="Check2" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 17.0
+offset_right = 8.0
+offset_bottom = 21.0
+texture = ExtResource("5_d3hcs")
+
+[node name="Check3" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 28.0
+texture = ExtResource("5_d3hcs")
+
+[node name="Check4" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 8.0
+offset_bottom = 35.0
+texture = ExtResource("5_d3hcs")
+
+[node name="X1" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 11.0
+offset_right = 6.0
+offset_bottom = 14.0
+texture = ExtResource("6_dltbp")
+
+[node name="X2" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 18.0
+offset_right = 6.0
+offset_bottom = 21.0
+texture = ExtResource("6_dltbp")
+
+[node name="X3" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 25.0
+offset_right = 6.0
+offset_bottom = 28.0
+texture = ExtResource("6_dltbp")
+
+[node name="X4" type="TextureRect" parent="SlipText"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 32.0
+offset_right = 6.0
+offset_bottom = 35.0
+texture = ExtResource("6_dltbp")
+
+[node name="Label1" type="RichTextLabel" parent="SlipText"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 27.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.396078, 0.396078, 0.396078, 0.764706)
+theme_override_fonts/normal_font = ExtResource("2_5l1mp")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Name"
+scroll_active = false
+
+[node name="Label2" type="RichTextLabel" parent="SlipText"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 27.0
+offset_bottom = 21.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.396078, 0.396078, 0.396078, 0.764706)
+theme_override_fonts/normal_font = ExtResource("2_5l1mp")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Date"
+scroll_active = false
+
+[node name="Label3" type="RichTextLabel" parent="SlipText"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 24.0
+offset_right = 27.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.396078, 0.396078, 0.396078, 0.764706)
+theme_override_fonts/normal_font = ExtResource("2_5l1mp")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "ID"
+scroll_active = false
+
+[node name="Label4" type="RichTextLabel" parent="SlipText"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 31.0
+offset_right = 33.0
+offset_bottom = 36.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.396078, 0.396078, 0.396078, 0.764706)
+theme_override_fonts/normal_font = ExtResource("2_5l1mp")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Blood Type"
+scroll_active = false
