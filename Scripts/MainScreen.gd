@@ -185,9 +185,9 @@ func _generate_random_ID(length: int):
 	var letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	for i in range(length):
 		if (i % 2 == 0):
-			var random_letter = randi() % letters.length()
+			var random_letter = randi_range(0,  letters.length() - 1)
 			random_ID += letters[random_letter]
 		else: 
-			var random_number = randi() % numbers.length()
+			var random_number = randi_range(0,  numbers.length() - 1)
 			random_ID += numbers[random_number]
 	return random_ID

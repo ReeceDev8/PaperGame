@@ -13,7 +13,7 @@ func setup_document(person_name: String, exp_date: String, doc_ID: String):
 	
 	name_label.text = "[right]" + person_name + "[/right]"
 	
-	sex_label.text = sex_options[randi() % sex_options.size()]
+	sex_label.text = sex_options[randi_range(0, sex_options.size() - 1)]
 	
 	expiration_label.text = exp_date
 	

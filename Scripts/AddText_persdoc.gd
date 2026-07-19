@@ -10,7 +10,7 @@ func setup_persdoc(person_name: String, doc_ID: String):
 	var posorneg_options: Array[String] = ["+", "-"]
 	var current_name: String = _modify_name_chance(person_name)
 	var persdoc_ID: String = _modify_person_ID(doc_ID, person_name, current_name)
-	var bloodtype: String = bloodtype_options[randi() % bloodtype_options.size()] + posorneg_options[randi() % posorneg_options.size()] 
+	var bloodtype: String = bloodtype_options[randi_range(0,  bloodtype_options.size() - 1)] + posorneg_options[randi_range(0,  posorneg_options.size() - 1)] 
 	
 	RulesEngine.persdoc_name = current_name
 	RulesEngine.persdoc_ID = persdoc_ID
@@ -49,7 +49,7 @@ func _modify_person_ID(doc_ID: String, person_name: String, current_name: String
 		return doc_ID
 	
 	if ((current_name == person_name) or randf() > 0.5):
-		doc_ID_Array[randi() % doc_ID_Array.size()] = letters[randi() % letters.length()]
+		doc_ID_Array[randi_range(0, doc_ID_Array.size() - 1)] = letters[randi_range(0,  letters.length())]
 		doc_ID = "".join(doc_ID_Array)
 		return doc_ID
 	else:

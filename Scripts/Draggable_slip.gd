@@ -55,7 +55,7 @@ func check_for_disposal():
 func play_random_pickup():
 	var temp_player = AudioStreamPlayer.new()
 	add_child(temp_player)
-	var random_sound = pickup_sounds[randi() % pickup_sounds.size()]
+	var random_sound = pickup_sounds[randi_range(0,  pickup_sounds.size() - 1)]
 	temp_player.stream = random_sound
 	temp_player.play()
 	temp_player.finished.connect(temp_player.queue_free)

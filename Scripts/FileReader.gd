@@ -38,5 +38,5 @@ func get_random_name() -> String:
 	if name_list.is_empty():
 		return "John Doe"
 	
-	var random_entry = name_list[randi() % name_list.size()]
+	var random_entry = name_list[randi_range(0, name_list.size() -1)]
 	return random_entry["first"] + " " + random_entry["last"]

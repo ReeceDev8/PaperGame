@@ -30,14 +30,14 @@ var voice_lines_leaving_good: Array[String] = [
 
 func show_greeting() -> void:
 	speech_bubble.modulate.a = 1.0
-	text_label.text = voice_lines_entering[randi() % voice_lines_entering.size()]
+	text_label.text = voice_lines_entering[randi_range(0, voice_lines_entering.size()- 1)]
 
 func show_dismissal(decision: String) -> void:
 	text_label.text = ""
 	if decision == "approved":
-		text_label.text = voice_lines_leaving_good[randi() % voice_lines_leaving_good.size()]
+		text_label.text = voice_lines_leaving_good[randi_range(0, voice_lines_leaving_good.size() - 1)]
 	elif decision == "denied":
-		text_label.text = voice_lines_leaving_bad[randi() % voice_lines_leaving_bad.size()]
+		text_label.text = voice_lines_leaving_bad[randi_range(0, voice_lines_leaving_bad.size() - 1)]
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_property(speech_bubble, "modulate:a", 0.0, 3.5)
