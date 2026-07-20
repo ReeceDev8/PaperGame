@@ -2,8 +2,8 @@ extends TextureRect
 
 @export var doc_type: String = "Main"
 
-var dragging = false
-var mouse_offset = Vector2.ZERO
+var dragging: bool = false
+var mouse_offset: Vector2 = Vector2.ZERO
 
 var pickup_sounds = [preload("res://Assets/Audio/Paper_slide1.wav"),
 					preload("res://Assets/Audio/Paper_slide2.wav")

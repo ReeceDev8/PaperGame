@@ -5,17 +5,17 @@
 [ext_resource type="AudioStream" uid="uid://b1vbpfpjo7khc" path="res://Assets/Audio/Printer.wav" id="3_5qqyf"]
 [ext_resource type="AudioStream" uid="uid://bpsnx3dwklfxe" path="res://Assets/Audio/FaceScannerSound.ogg" id="4_t8pm5"]
 [ext_resource type="AudioStream" uid="uid://cwlw2knkjt8mr" path="res://Assets/Audio/Stamp_Sound.wav" id="5_wy6ch"]
-[ext_resource type="Texture2D" uid="uid://cnd4xc8kl5oxn" path="res://Assets/Images/Background.png" id="6_3vqn3"]
+[ext_resource type="Texture2D" uid="uid://dpk3vthwl1n4x" path="res://Assets/Images/Wall1.png" id="6_11pks"]
 [ext_resource type="Texture2D" uid="uid://b145t3vd4n2b" path="res://Assets/Images/Printer.png" id="6_u7dae"]
 [ext_resource type="Texture2D" uid="uid://c7x7x4h65lo2t" path="res://Assets/Images/StickStand.png" id="7_07p0x"]
+[ext_resource type="Texture2D" uid="uid://bgic2i4ci0xky" path="res://Assets/Images/Desk.png" id="8_epa6d"]
 [ext_resource type="Texture2D" uid="uid://cxkcslj15nl03" path="res://Assets/Images/StickWalk1.png" id="8_m6a8e"]
-[ext_resource type="Texture2D" uid="uid://5vnlu05bbo5r" path="res://Assets/Images/Wall.png" id="9_2m7l5"]
 [ext_resource type="Script" path="res://Scripts/VisitorManager.gd" id="9_hyp6q"]
 [ext_resource type="Texture2D" uid="uid://8lf8b7hwunqp" path="res://Assets/Images/StickWalk2.png" id="9_o5kxg"]
 [ext_resource type="Texture2D" uid="uid://bvnj67d8pyhun" path="res://Assets/Images/SpeechBubble.png" id="10_5jf8k"]
 [ext_resource type="Texture2D" uid="uid://6lpo0k80ab5q" path="res://Assets/Images/Calendar.png" id="10_7bpcu"]
+[ext_resource type="Texture2D" uid="uid://25vspr5n4xd0" path="res://Assets/Images/bloodtype_poster_Shadowed.png" id="11_ntq6e"]
 [ext_resource type="AudioStream" uid="uid://cimd5pv18ti7h" path="res://Assets/Audio/Bell_Ding.wav" id="12_cdyt4"]
-[ext_resource type="Texture2D" uid="uid://cpg3wn3xlv2sd" path="res://Assets/Images/Blood_Type_Poster_bloody.png" id="12_dpigh"]
 [ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="12_jk7t2"]
 [ext_resource type="Texture2D" uid="uid://i07nquy1va3f" path="res://Assets/Images/Scanner1.png" id="13_leyp8"]
 [ext_resource type="Texture2D" uid="uid://d1bj3gvb76m0x" path="res://Assets/Images/Bell.png" id="13_r1cit"]
@@ -117,12 +117,7 @@ z_index = 1
 layout_mode = 0
 offset_right = 570.0
 offset_bottom = 160.0
-texture = ExtResource("9_2m7l5")
-
-[node name="Background" type="TextureRect" parent="Environment"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_3vqn3")
+texture = ExtResource("6_11pks")
 
 [node name="Printer" type="TextureRect" parent="Environment"]
 z_index = 3
@@ -138,6 +133,13 @@ anchors_preset = 0
 offset_top = 160.0
 offset_right = 570.0
 offset_bottom = 320.0
+
+[node name="DeskTexture" type="TextureRect" parent="Environment/DeskArea"]
+layout_mode = 0
+offset_top = -160.0
+offset_right = 570.0
+offset_bottom = 160.0
+texture = ExtResource("8_epa6d")
 
 [node name="Calendar" type="TextureRect" parent="Environment"]
 z_index = 2
@@ -163,11 +165,11 @@ scroll_active = false
 
 [node name="BloodTypePoster" type="TextureRect" parent="Environment"]
 z_index = 2
-offset_left = 485.0
-offset_top = 16.0
-offset_right = 560.0
-offset_bottom = 106.0
-texture = ExtResource("12_dpigh")
+offset_left = 478.0
+offset_top = 4.0
+offset_right = 553.0
+offset_bottom = 94.0
+texture = ExtResource("11_ntq6e")
 
 [node name="VisitorSystem" type="Node2D" parent="."]
 script = ExtResource("9_hyp6q")

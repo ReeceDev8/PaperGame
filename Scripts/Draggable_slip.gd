@@ -1,7 +1,7 @@
 extends TextureRect
 
-var dragging = false
-var mouse_offset = Vector2.ZERO
+var dragging: bool = false
+var mouse_offset: Vector2 = Vector2.ZERO
 var slip_node = self
 var trash_sound = preload("res://Assets/Audio/Slip_Trash.ogg")
 var pickup_sounds = [preload("res://Assets/Audio/Paper_slide1.wav"),
