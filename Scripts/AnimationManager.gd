@@ -15,7 +15,7 @@ func animate_scanner(sprite: AnimatedSprite2D) -> void:
 
 func animate_maindoc_spawn(doc_node: TextureRect) -> void:
 	var tween = create_tween()
-	tween.tween_property(doc_node, "global_position", Vector2(250, 162), 2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(doc_node, "global_position", Vector2(250, 162), 2.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	tween.finished.connect(func():
 		if doc_node:

@@ -3,19 +3,14 @@ extends Control
 var document_blueprint = preload("res://Papers/Document.tscn")
 var paperslip_blueprint = preload("res://Papers/paper_slip.tscn")
 var persdoc_blueprint = preload("res://Papers/personal_doc.tscn")
-var trash_sound = preload("res://Assets/Audio/Slip_Trash.ogg")
 
 @onready var desk_area = $Environment/DeskArea 
-@onready var print_player = $PrintPlayer
-@onready var print1_player = $Print1Player
-@onready var bell_player = $Interface/BellButton/BellPlayer
-@onready var stamp_player = $StampSound
-@onready var scanner_sound = $ScannerSound
 @onready var scanner = $VisitorSystem/ScannerAnim
 @onready var bell = $Interface/BellButton/Bell
 @onready var dialogue_manager: DialogueManager = $DialogueSystem
 @onready var visitor_manager: VisitorManager = $VisitorSystem
 @onready var animation_manager: AnimationManager = $AnimationManager
+@onready var sound_manager: SoundManager = $SoundManager
 
 enum GameState { WAITING_FOR_VISITOR, CALLED_FOR_VISITOR, VISITOR_ARRIVED, DOCUMENT_ACTIVE, VISITOR_LEAVING }
 var current_state = GameState.WAITING_FOR_VISITOR
@@ -36,7 +31,7 @@ func _ready():
 
 func _on_beautiful_bell_pressed():
 	
-	bell_player.play()
+	sound_manager.play_sfx(sound_manager.bell_sound)
 	animation_manager.animate_bell(bell)
 	
 	if current_state != GameState.WAITING_FOR_VISITOR: return
@@ -52,7 +47,7 @@ func _on_button_pressed():
 	if current_state != GameState.VISITOR_ARRIVED: return
 	current_state = GameState.DOCUMENT_ACTIVE
 	
-	scanner_sound.play()
+	sound_manager.play_sfx(sound_manager.scanner_sound)
 	await animation_manager.animate_scanner(scanner)
 	
 	var random_year: String = ""
@@ -69,7 +64,7 @@ func _on_button_pressed():
 func spawn_new_document(name_data: String, date_data: String, doc_ID: String):
 	current_document_instance = document_blueprint.instantiate()
 	desk_area.add_child(current_document_instance)
-	print_player.play()
+	sound_manager.play_sfx(sound_manager.maindoc_print_sound)
 	
 	dialogue_manager.show_greeting()
 	
@@ -109,17 +104,14 @@ func stamp_current_document(decision: String):
 	
 	if current_document_instance.has_node("Text"):
 		current_document_instance.get_node("Text").apply_stamp(decision)
-	stamp_player.play()
+	sound_manager.play_sfx(sound_manager.stamp_sound)
 	
 func process_hand_off(doc_type: String, doc_node: Node):
 	if current_decision == "none": return
 	
-	var temp_player = AudioStreamPlayer.new()
-	add_child(temp_player)
-	temp_player.stream = trash_sound
-	temp_player.play()
+	sound_manager.play_sfx(sound_manager.trash_sound)
 	animation_manager.animate_document_handoff(doc_node)
-	temp_player.finished.connect(temp_player.queue_free)
+	
 	
 	# 1. Add this document to the list if not already there
 	if not handed_over_docs.has(doc_type):
@@ -158,7 +150,7 @@ func administer_slip():
 		
 	
 	animation_manager.animate_report_spawn(current_slip_instance)
-	print1_player.play()
+	sound_manager.play_sfx(sound_manager.report_print_sound)
 	
 
 func _on_turn_reset():
