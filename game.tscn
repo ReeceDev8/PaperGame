@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://mfgmki4qqsin"]
+[gd_scene load_steps=30 format=3 uid="uid://mfgmki4qqsin"]
 
 [ext_resource type="Script" path="res://Scripts/MainScreen.gd" id="1_jlowi"]
 [ext_resource type="AudioStream" uid="uid://c6k77tde2itls" path="res://Assets/Audio/print1.ogg" id="2_8cda4"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dklmmeovq4kwq" path="res://Assets/Images/Scanner2.png" id="14_e28w3"]
 [ext_resource type="Script" path="res://Scripts/DialogueManager.gd" id="15_8eyi1"]
 [ext_resource type="Texture2D" uid="uid://84vq8apxsy8m" path="res://Assets/Images/Bell_pressed.png" id="21_1djjb"]
+[ext_resource type="Script" path="res://Scripts/AnimationManager.gd" id="23_qsujc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8g412"]
 animations = [{
@@ -288,6 +289,9 @@ position = Vector2(9, 8)
 sprite_frames = SubResource("SpriteFrames_r4do5")
 animation = &"BellPress"
 frame_progress = 0.484348
+
+[node name="AnimationManager" type="Node" parent="."]
+script = ExtResource("23_qsujc")
 
 [connection signal="pressed" from="Interface/DenyButton" to="." method="_on_deny_button_pressed"]
 [connection signal="pressed" from="Interface/ApproveButton" to="." method="_on_approve_button_pressed"]
