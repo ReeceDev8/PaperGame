@@ -12,5 +12,6 @@ func play_sfx(stream: AudioStream) -> void:
 	var temp_player = AudioStreamPlayer.new()
 	add_child(temp_player)
 	temp_player.stream = stream
+	temp_player.bus = "Sound Effects"
 	temp_player.finished.connect(temp_player.queue_free)
 	temp_player.play()

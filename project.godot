@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="PaperGame0.1"
-run/main_scene="res://game.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Themes/default_bus_layout.tres"
 
 [autoload]
 
@@ -29,6 +33,16 @@ window/size/window_width_override=1710
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "purple",
+"res://Papers/": "red",
+"res://Scenes/": "pink",
+"res://Scripts/": "teal",
+"res://Themes/": "yellow"
+}
 
 [rendering]
 

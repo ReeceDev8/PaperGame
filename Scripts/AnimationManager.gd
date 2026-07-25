@@ -13,7 +13,7 @@ func animate_scanner(sprite: AnimatedSprite2D) -> void:
 	await get_tree().create_timer(3.8).timeout
 	sprite.modulate.a = 0.0
 
-func animate_maindoc_spawn(doc_node: TextureRect) -> void:
+func animate_maindoc_spawn(doc_node: Node) -> void:
 	var tween = create_tween()
 	tween.tween_property(doc_node, "global_position", Vector2(250, 162), 2.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
@@ -34,7 +34,7 @@ func animate_report_spawn(report_node: Node) -> void:
 	tween.tween_property(report_node, "global_position", Vector2(260, 270), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	await tween.finished
 
-func animate_document_handoff(doc_node: Node):
+func animate_document_handoff(doc_node: Node) -> void:
 	var start_y = doc_node.global_position.y
 	var drop_target_y = start_y + 120
 	

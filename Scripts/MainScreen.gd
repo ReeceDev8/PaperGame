@@ -4,6 +4,7 @@ var document_blueprint = preload("res://Papers/Document.tscn")
 var paperslip_blueprint = preload("res://Papers/paper_slip.tscn")
 var persdoc_blueprint = preload("res://Papers/personal_doc.tscn")
 
+@onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 @onready var desk_area = $Environment/DeskArea 
 @onready var scanner = $VisitorSystem/ScannerAnim
 @onready var bell = $Interface/BellButton/Bell
@@ -13,6 +14,7 @@ var persdoc_blueprint = preload("res://Papers/personal_doc.tscn")
 @onready var sound_manager: SoundManager = $SoundManager
 
 enum GameState { WAITING_FOR_VISITOR, CALLED_FOR_VISITOR, VISITOR_ARRIVED, DOCUMENT_ACTIVE, VISITOR_LEAVING }
+var is_first_visitor = true
 var current_state = GameState.WAITING_FOR_VISITOR
 var current_document_instance = null
 var current_slip_instance = null
@@ -22,6 +24,12 @@ var current_visitor_year : String = ""
 var handed_over_docs = []
 
 func _ready():
+	
+	SceneTransitionAnimation.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+	reset_state()
+	
+func reset_state() -> void:
 	current_state = GameState.WAITING_FOR_VISITOR
 	
 	if not visitor_manager.entrance_complete.is_connected(_on_visitor_arrived):
@@ -30,7 +38,6 @@ func _ready():
 		visitor_manager.exit_complete.connect(_on_turn_reset)
 
 func _on_beautiful_bell_pressed():
-	
 	sound_manager.play_sfx(sound_manager.bell_sound)
 	animation_manager.animate_bell(bell)
 	
@@ -112,7 +119,6 @@ func process_hand_off(doc_type: String, doc_node: Node):
 	sound_manager.play_sfx(sound_manager.trash_sound)
 	animation_manager.animate_document_handoff(doc_node)
 	
-	
 	# 1. Add this document to the list if not already there
 	if not handed_over_docs.has(doc_type):
 		handed_over_docs.append(doc_type)
@@ -123,7 +129,6 @@ func process_hand_off(doc_type: String, doc_node: Node):
 	else:
 		print("Waiting for the other document...")
 	
-
 
 func start_dismissal():
 	current_state = GameState.VISITOR_LEAVING
@@ -160,7 +165,7 @@ func _on_turn_reset():
 	RulesEngine.maindoc_ID = ""
 	RulesEngine.persdoc_ID = ""
 	dialogue_manager.clear()
-	_ready()
+	reset_state()
 
 func _generate_random_ID(length: int):
 	var random_ID: String = ""

@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://pkcw8ime0nwe"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_34ygv"]
+[ext_resource type="Theme" uid="uid://bpsut6q0js2xr" path="res://Themes/Menu_Button_Theme.tres" id="1_kkgva"]
+[ext_resource type="FontFile" uid="uid://by625cp1o1r3v" path="res://Assets/Fonts/zai_RemingtonDeluxeTypewriter1938.ttf" id="1_sklhs"]
+[ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="4_dda84"]
+[ext_resource type="PackedScene" uid="uid://bc3jiiegxvtw1" path="res://Scenes/OptionsMenu.tscn" id="5_uexxt"]
+
+[node name="MainMenu" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34ygv")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -85.0
+offset_right = 47.5
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_sklhs")
+text = "Paper Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_kkgva")
+text = "Play"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_kkgva")
+text = "Options"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_kkgva")
+text = "Quit"
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("4_dda84")]
+layout_mode = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_uexxt")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="back_pressed" from="OptionsMenu" to="." method="_on_options_back_pressed"]

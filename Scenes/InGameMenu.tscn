@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4eg1dsty2jd6"]
+
+[ext_resource type="Script" path="res://Scripts/in_game_menu.gd" id="1_rboum"]
+[ext_resource type="Theme" uid="uid://bpsut6q0js2xr" path="res://Themes/Menu_Button_Theme.tres" id="2_timj8"]
+[ext_resource type="PackedScene" uid="uid://bc3jiiegxvtw1" path="res://Scenes/OptionsMenu.tscn" id="3_rps8k"]
+[ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="4_83dws"]
+
+[node name="InGameMenu" type="Control"]
+process_mode = 3
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rboum")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_timj8")
+text = "Main Menu"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_timj8")
+text = "Options"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_timj8")
+text = "Quit"
+
+[node name="close_menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 4.0
+offset_right = 564.0
+offset_bottom = 35.0
+theme = ExtResource("2_timj8")
+text = "x"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("3_rps8k")]
+layout_mode = 1
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("4_83dws")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="close_menu" to="." method="_on_close_menu_pressed"]
+[connection signal="back_pressed" from="OptionsMenu" to="." method="_on_options_back_pressed"]
