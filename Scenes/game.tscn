@@ -316,6 +316,6 @@ layout_mode = 1
 
 [connection signal="pressed" from="Interface/DenyButton" to="." method="_on_deny_button_pressed"]
 [connection signal="pressed" from="Interface/ApproveButton" to="." method="_on_approve_button_pressed"]
-[connection signal="pressed" from="Interface/SpawnPaperButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Interface/SpawnPaperButton" to="." method="_on_scan_button_pressed"]
 [connection signal="pressed" from="Interface/BellButton" to="." method="_on_beautiful_bell_pressed"]
 [connection signal="pressed" from="Interface/menu_button" to="InGameMenu" method="_on_menu_button_pressed"]

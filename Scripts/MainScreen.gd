@@ -50,7 +50,7 @@ func _on_beautiful_bell_pressed():
 func _on_visitor_arrived():
 	current_state = GameState.VISITOR_ARRIVED
 
-func _on_button_pressed():
+func _on_scan_button_pressed():
 	if current_state != GameState.VISITOR_ARRIVED: return
 	current_state = GameState.DOCUMENT_ACTIVE
 	
