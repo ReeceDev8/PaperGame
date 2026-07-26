@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://mfgmki4qqsin"]
+[gd_scene load_steps=38 format=3 uid="uid://mfgmki4qqsin"]
 
 [ext_resource type="Script" path="res://Scripts/MainScreen.gd" id="1_du70v"]
 [ext_resource type="Texture2D" uid="uid://dpk3vthwl1n4x" path="res://Assets/Images/Wall1.png" id="2_er1d7"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://6lpo0k80ab5q" path="res://Assets/Images/Calendar.png" id="5_fs2yf"]
 [ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="6_r7n3r"]
 [ext_resource type="Texture2D" uid="uid://25vspr5n4xd0" path="res://Assets/Images/bloodtype_poster_Shadowed.png" id="7_01h2s"]
+[ext_resource type="Texture2D" uid="uid://c8f0rjt2jdhtn" path="res://Assets/Images/Analog_Clock.png" id="8_1kvvl"]
 [ext_resource type="Script" path="res://Scripts/VisitorManager.gd" id="8_3007b"]
 [ext_resource type="Texture2D" uid="uid://c7x7x4h65lo2t" path="res://Assets/Images/StickStand.png" id="9_lkt6i"]
+[ext_resource type="PackedScene" uid="uid://drwa7ldntixyv" path="res://Scenes/ClockFace.tscn" id="9_w4v8m"]
 [ext_resource type="Texture2D" uid="uid://cxkcslj15nl03" path="res://Assets/Images/StickWalk1.png" id="10_r8348"]
 [ext_resource type="Texture2D" uid="uid://8lf8b7hwunqp" path="res://Assets/Images/StickWalk2.png" id="11_u3moa"]
 [ext_resource type="Texture2D" uid="uid://i07nquy1va3f" path="res://Assets/Images/Scanner1.png" id="12_p04h6"]
@@ -27,6 +29,8 @@
 [ext_resource type="AudioStream" uid="uid://b1vbpfpjo7khc" path="res://Assets/Audio/Printer.wav" id="25_3a2k3"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="26_oy7fj"]
 [ext_resource type="PackedScene" uid="uid://b4eg1dsty2jd6" path="res://Scenes/InGameMenu.tscn" id="27_tbpf5"]
+[ext_resource type="Script" path="res://Scripts/time_system.gd" id="28_l4a12"]
+[ext_resource type="Resource" uid="uid://bo6mqiil03ovo" path="res://Scenes/game_time.tres" id="29_dp6np"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8g412"]
 animations = [{
@@ -163,6 +167,14 @@ offset_top = 4.0
 offset_right = 553.0
 offset_bottom = 94.0
 texture = ExtResource("7_01h2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+z_index = 2
+position = Vector2(94, 35)
+texture = ExtResource("8_1kvvl")
+
+[node name="ClockFace" parent="Environment/Sprite2D" instance=ExtResource("9_w4v8m")]
+scale = Vector2(0.1, 0.1)
 
 [node name="VisitorSystem" type="Node2D" parent="."]
 script = ExtResource("8_3007b")
@@ -305,6 +317,11 @@ bell_sound = ExtResource("16_xl6rf")
 scanner_sound = ExtResource("23_8kldb")
 maindoc_print_sound = ExtResource("24_fa22d")
 report_print_sound = ExtResource("25_3a2k3")
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("28_l4a12")
+date_time = ExtResource("29_dp6np")
+ticks_per_second = 288
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("26_oy7fj")]
 z_index = 100

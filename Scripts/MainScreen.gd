@@ -25,6 +25,7 @@ var handed_over_docs = []
 
 func _ready():
 	
+	TimeManager.pause_time()
 	SceneTransitionAnimation.play("fade_out")
 	await get_tree().create_timer(0.5).timeout
 	reset_state()
@@ -38,6 +39,9 @@ func reset_state() -> void:
 		visitor_manager.exit_complete.connect(_on_turn_reset)
 
 func _on_beautiful_bell_pressed():
+	if is_first_visitor:
+		TimeManager.resume_time()
+	
 	sound_manager.play_sfx(sound_manager.bell_sound)
 	animation_manager.animate_bell(bell)
 	
@@ -161,9 +165,11 @@ func administer_slip():
 func _on_turn_reset():
 	if is_instance_valid(current_document_instance):
 		current_document_instance.queue_free()
+	
 	current_decision = "none"
 	RulesEngine.maindoc_ID = ""
 	RulesEngine.persdoc_ID = ""
+	
 	dialogue_manager.clear()
 	reset_state()
 
@@ -171,6 +177,7 @@ func _generate_random_ID(length: int):
 	var random_ID: String = ""
 	var numbers: String = "0123456789"
 	var letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	
 	for i in range(length):
 		if (i % 2 == 0):
 			var random_letter = randi() % letters.length()

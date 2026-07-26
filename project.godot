@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Themes/default_bus_layout.tres"
 
 FileReader="*res://Scripts/FileReader.gd"
 RulesEngine="*res://Scripts/RulesEngine.gd"
+TimeManager="*res://Scripts/TimeManager.gd"
 
 [display]
 

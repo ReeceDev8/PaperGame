@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://drwa7ldntixyv"]
+
+[ext_resource type="Script" path="res://Scripts/clock_face.gd" id="1_764wq"]
+
+[node name="ClockFace" type="Node2D"]
+script = ExtResource("1_764wq")
+
+[node name="MinuteHand" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -100)
+default_color = Color(0, 0, 0, 1)
+
+[node name="HourHand" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -60)
+default_color = Color(0.0274091, 0.0274092, 0.0274092, 1)

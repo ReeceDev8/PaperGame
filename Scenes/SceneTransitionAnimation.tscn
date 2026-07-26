@@ -1,5 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb5s7vacslhld"]
 
+[sub_resource type="Animation" id="Animation_n3ihk"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_r6c8u"]
 resource_name = "fade_in"
 tracks/0/type = "value"
@@ -14,9 +17,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_n3ihk"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_0x351"]
 resource_name = "fade_out"
