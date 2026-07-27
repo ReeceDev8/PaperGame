@@ -4,6 +4,7 @@ var document_blueprint = preload("res://Papers/Document.tscn")
 var paperslip_blueprint = preload("res://Papers/paper_slip.tscn")
 var persdoc_blueprint = preload("res://Papers/personal_doc.tscn")
 
+
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 @onready var desk_area = $Environment/DeskArea 
 @onready var scanner = $VisitorSystem/ScannerAnim
@@ -22,13 +23,41 @@ var current_persdoc_instance = null
 var current_decision : String = "none"
 var current_visitor_year : String = ""
 var handed_over_docs = []
+var has_transitioned = false
+
+# Debug stuff
+#var _debug_accum: float = 0.0
+#const DEBUG_INTERVAL: float = 0.5
+
 
 func _ready():
-	
+	# print("MainScreen instance active ID: ", self.get_instance_id())
+	TimeManager.reset_time()
 	TimeManager.pause_time()
 	SceneTransitionAnimation.play("fade_out")
 	await get_tree().create_timer(0.5).timeout
 	reset_state()
+
+func _physics_process(delta: float) -> void:
+	
+	# Debug stuff
+	#_debug_accum += delta
+	#if _debug_accum >= DEBUG_INTERVAL:
+		#_debug_accum -= DEBUG_INTERVAL
+		#print("instance ", self.get_instance_id(), ", hours=", TimeManager.date_time.hours)
+	
+	if has_transitioned:
+		return
+	
+	if TimeManager.date_time.hours != 2:
+		return
+	else:
+		# print("Transitioning... (instance ", self.get_instance_id(), ", hours=", TimeManager.date_time.hours, ")")
+		has_transitioned = true
+		TimeManager.pause_time()
+		SceneTransitionAnimation.play("fade_in")
+		await get_tree().create_timer(1.0).timeout
+		get_tree().change_scene_to_file("res://Scenes/PostDayScreen.tscn")
 	
 func reset_state() -> void:
 	current_state = GameState.WAITING_FOR_VISITOR
@@ -152,11 +181,14 @@ func administer_slip():
 	
 	if valid:
 		evaluation = "Correct"
+		globals.number_correct += 1
+		globals.money_earned += 10
 		current_slip_instance.get_node("SlipText").setup_slip(evaluation)
 	else: 
 		evaluation = "Incorrect"
+		globals.number_incorrect += 1
 		current_slip_instance.get_node("SlipText").setup_slip(evaluation)
-		
+	
 	
 	animation_manager.animate_report_spawn(current_slip_instance)
 	sound_manager.play_sfx(sound_manager.report_print_sound)
@@ -166,6 +198,7 @@ func _on_turn_reset():
 	if is_instance_valid(current_document_instance):
 		current_document_instance.queue_free()
 	
+	is_first_visitor = false
 	current_decision = "none"
 	RulesEngine.maindoc_ID = ""
 	RulesEngine.persdoc_ID = ""

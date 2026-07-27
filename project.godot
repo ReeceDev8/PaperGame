@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Themes/default_bus_layout.tres"
 FileReader="*res://Scripts/FileReader.gd"
 RulesEngine="*res://Scripts/RulesEngine.gd"
 TimeManager="*res://Scripts/TimeManager.gd"
+globals="*res://Scripts/globals.gd"
 
 [display]
 
@@ -34,6 +35,11 @@ window/size/window_width_override=1710
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
+
+[editor]
+
+movie_writer/disable_vsync=true
 
 [file_customization]
 

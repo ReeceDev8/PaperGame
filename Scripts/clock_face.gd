@@ -8,7 +8,7 @@ const MINUTE_HAND_LENGTH = 100
 @onready var hour_hand: Line2D = $HourHand
 
 
-func _process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if TimeManager.date_time:
 		minute_hand.set_point_position(1, calculate_hand_tip_location(MINUTE))
 		hour_hand.set_point_position(1, calculate_hand_tip_location(HOUR))

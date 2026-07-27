@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://mfgmki4qqsin"]
+[gd_scene load_steps=36 format=3 uid="uid://mfgmki4qqsin"]
 
 [ext_resource type="Script" path="res://Scripts/MainScreen.gd" id="1_du70v"]
 [ext_resource type="Texture2D" uid="uid://dpk3vthwl1n4x" path="res://Assets/Images/Wall1.png" id="2_er1d7"]
@@ -29,8 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://b1vbpfpjo7khc" path="res://Assets/Audio/Printer.wav" id="25_3a2k3"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="26_oy7fj"]
 [ext_resource type="PackedScene" uid="uid://b4eg1dsty2jd6" path="res://Scenes/InGameMenu.tscn" id="27_tbpf5"]
-[ext_resource type="Script" path="res://Scripts/time_system.gd" id="28_l4a12"]
-[ext_resource type="Resource" uid="uid://bo6mqiil03ovo" path="res://Scenes/game_time.tres" id="29_dp6np"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8g412"]
 animations = [{
@@ -260,17 +258,6 @@ theme_override_fonts/font = ExtResource("6_r7n3r")
 theme_override_font_sizes/font_size = 16
 text = "Approve"
 
-[node name="SpawnPaperButton" type="Button" parent="Interface"]
-z_index = 3
-layout_mode = 0
-offset_left = 513.0
-offset_top = 214.0
-offset_right = 558.0
-offset_bottom = 245.0
-theme_override_fonts/font = ExtResource("6_r7n3r")
-theme_override_font_sizes/font_size = 16
-text = "Scan"
-
 [node name="BellButton" type="Button" parent="Interface"]
 z_index = 3
 layout_mode = 1
@@ -306,6 +293,17 @@ theme_override_font_sizes/font_size = 24
 text = "⚙
 "
 
+[node name="SpawnPaperButton" type="Button" parent="Interface"]
+z_index = 3
+layout_mode = 0
+offset_left = 513.0
+offset_top = 214.0
+offset_right = 558.0
+offset_bottom = 245.0
+theme_override_fonts/font = ExtResource("6_r7n3r")
+theme_override_font_sizes/font_size = 16
+text = "Scan"
+
 [node name="AnimationManager" type="Node" parent="."]
 script = ExtResource("19_nt2a1")
 
@@ -318,11 +316,6 @@ scanner_sound = ExtResource("23_8kldb")
 maindoc_print_sound = ExtResource("24_fa22d")
 report_print_sound = ExtResource("25_3a2k3")
 
-[node name="TimeSystem" type="Node" parent="."]
-script = ExtResource("28_l4a12")
-date_time = ExtResource("29_dp6np")
-ticks_per_second = 288
-
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("26_oy7fj")]
 z_index = 100
 layout_mode = 1
@@ -333,6 +326,6 @@ layout_mode = 1
 
 [connection signal="pressed" from="Interface/DenyButton" to="." method="_on_deny_button_pressed"]
 [connection signal="pressed" from="Interface/ApproveButton" to="." method="_on_approve_button_pressed"]
-[connection signal="pressed" from="Interface/SpawnPaperButton" to="." method="_on_scan_button_pressed"]
 [connection signal="pressed" from="Interface/BellButton" to="." method="_on_beautiful_bell_pressed"]
 [connection signal="pressed" from="Interface/menu_button" to="InGameMenu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Interface/SpawnPaperButton" to="." method="_on_scan_button_pressed"]
