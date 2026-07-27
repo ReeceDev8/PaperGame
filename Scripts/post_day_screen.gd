@@ -29,17 +29,14 @@ func _ready() -> void:
 	stats_label.text = "[center]" + stats + "[/center]"
 	correct_label.text = "Correct Evaluations: " + str(number_correct)
 	incorrect_label.text = "Incorrect Evaluations: " + str(number_incorrect)
-	salary_label.text = "Salary: " + str(money_earned)
-	debt_label.text = "Debt Payment: -" + str(debt_payment)
-	money_label.text = "Total Money: " + str(curr_total_money)
+	salary_label.text = "Salary: $" + str(money_earned)
+	debt_label.text = "Debt Payment: -$" + str(debt_payment)
+	money_label.text = "Total Money: $" + str(curr_total_money)
 	
 	for label in label_array:
 		label.self_modulate.a = 0
 	
 	animate_text()
-
-func _process(_delta: float) -> void:
-	pass
 
 func animate_text() -> void:
 	for label in label_array:
