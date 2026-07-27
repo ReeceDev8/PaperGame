@@ -28,6 +28,10 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Master Volume"
@@ -54,12 +58,4 @@ value = 0.3
 script = ExtResource("1_27kop")
 bus_name = "Sound Effects"
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 58.0
-offset_bottom = 41.0
-text = "Back"
-
-[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_pressed"]

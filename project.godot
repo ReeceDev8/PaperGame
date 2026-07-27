@@ -36,11 +36,6 @@ window/size/window_width_override=1710
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
-window/vsync/vsync_mode=0
-
-[editor]
-
-movie_writer/disable_vsync=true
 
 [file_customization]
 
@@ -49,6 +44,7 @@ folder_colors={
 "res://Papers/": "red",
 "res://Scenes/": "pink",
 "res://Scripts/": "teal",
+"res://Shaders/": "orange",
 "res://Themes/": "yellow"
 }
 

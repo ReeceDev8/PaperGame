@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4eg1dsty2jd6"]
+[gd_scene load_steps=6 format=3 uid="uid://b4eg1dsty2jd6"]
 
 [ext_resource type="Script" path="res://Scripts/in_game_menu.gd" id="1_rboum"]
 [ext_resource type="Theme" uid="uid://bpsut6q0js2xr" path="res://Themes/Menu_Button_Theme.tres" id="2_timj8"]
+[ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="3_gp2uh"]
 [ext_resource type="PackedScene" uid="uid://bc3jiiegxvtw1" path="res://Scenes/OptionsMenu.tscn" id="3_rps8k"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="4_83dws"]
 
@@ -47,12 +48,13 @@ text = "Quit"
 
 [node name="close_menu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 546.0
-offset_top = 4.0
-offset_right = 564.0
-offset_bottom = 35.0
-theme = ExtResource("2_timj8")
-text = "x"
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("3_gp2uh")
+theme_override_font_sizes/font_size = 24
+text = "X"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("3_rps8k")]
 layout_mode = 1
