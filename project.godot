@@ -25,6 +25,7 @@ FileReader="*res://Scripts/FileReader.gd"
 RulesEngine="*res://Scripts/RulesEngine.gd"
 TimeManager="*res://Scripts/TimeManager.gd"
 globals="*res://Scripts/globals.gd"
+DetectWindowFocus="*res://Scripts/DetectWindowFocus.gd"
 
 [display]
 
