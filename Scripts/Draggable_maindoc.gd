@@ -1,6 +1,7 @@
 extends TextureRect
 
 @export var doc_type: String = "Main"
+@onready var hand_sprite: Sprite2D = get_tree().get_first_node_in_group("hand_sprite")
 
 var dragging: bool = false
 var mouse_offset: Vector2 = Vector2.ZERO
@@ -78,6 +79,11 @@ func check_for_hand_off():
 		else:
 			create_tween().tween_property(self, "scale", Vector2(1.0, 1.0), 0.15)
 
+func _on_mouse_entered() -> void:
+	hand_sprite.set_hover_state(true)
+
+func _on_mouse_exited() -> void:
+	hand_sprite.set_hover_state(false)
 
 func play_random_pickup():
 	var temp_player = AudioStreamPlayer.new()

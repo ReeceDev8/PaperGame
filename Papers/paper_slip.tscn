@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b06yuc7nqm1fp" path="res://Assets/Images/Check.png" id="5_d3hcs"]
 [ext_resource type="Texture2D" uid="uid://4tvdrn68nwk7" path="res://Assets/Images/X.png" id="6_dltbp"]
 
-[node name="PaperSlip" type="TextureRect"]
+[node name="PaperSlip" type="TextureRect" groups=["interactive_items"]]
 z_index = 4
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,3 +166,6 @@ theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
 text = "Blood Type"
 scroll_active = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -19,7 +19,7 @@ var labels_amount: int = 5
 var label_array: Array[RichTextLabel] = []
 
 func _ready() -> void:
-	print("PostDayScreen ready, instance ", get_instance_id())
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	label_array = [correct_label,
 						incorrect_label,
 						salary_label,

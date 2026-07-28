@@ -32,6 +32,7 @@ var has_transitioned = false
 
 func _ready():
 	# print("MainScreen instance active ID: ", self.get_instance_id())
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	TimeManager.reset_time()
 	TimeManager.pause_time()
 	SceneTransitionAnimation.play("fade_out")

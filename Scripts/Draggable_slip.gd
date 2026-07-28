@@ -1,5 +1,7 @@
 extends TextureRect
 
+@onready var hand_sprite: Sprite2D = get_tree().get_first_node_in_group("hand_sprite")
+
 var dragging: bool = false
 var mouse_offset: Vector2 = Vector2.ZERO
 var slip_node = self
@@ -7,6 +9,7 @@ var trash_sound = preload("res://Assets/Audio/Slip_Trash.ogg")
 var pickup_sounds = [preload("res://Assets/Audio/Paper_slide1.wav"),
 					preload("res://Assets/Audio/Paper_slide2.wav")
 					]
+
 
 func _ready():
 	pivot_offset = size / 2.0
@@ -51,6 +54,12 @@ func check_for_disposal():
 		await tween.finished
 		queue_free()
 		temp_player.finished.connect(temp_player.queue_free)
+
+func _on_mouse_entered() -> void:
+	hand_sprite.set_hover_state(true)
+
+func _on_mouse_exited() -> void:
+	hand_sprite.set_hover_state(false)
 
 func play_random_pickup():
 	var temp_player = AudioStreamPlayer.new()

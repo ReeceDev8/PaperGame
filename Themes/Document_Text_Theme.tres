@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=12 format=4 uid="uid://dnkrursd8f1ng"]
 
-[ext_resource type="FontFile" uid="uid://by625cp1o1r3v" path="res://Assets/Fonts/zai_RemingtonDeluxeTypewriter1938.ttf" id="1_oxc5u"]
+[ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="1_vjw7q"]
 
 [sub_resource type="Image" id="Image_jkyjn"]
 data = {
@@ -1454,11 +1454,11 @@ RichTextLabel/font_sizes/bold_font_size = 6
 RichTextLabel/font_sizes/bold_italics_font_size = 6
 RichTextLabel/font_sizes/italics_font_size = 6
 RichTextLabel/font_sizes/mono_font_size = 6
-RichTextLabel/font_sizes/normal_font_size = 6
+RichTextLabel/font_sizes/normal_font_size = 8
 RichTextLabel/fonts/bold_font = SubResource("FontVariation_fuhkh")
 RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_jdorw")
 RichTextLabel/fonts/italics_font = SubResource("FontVariation_w071s")
 RichTextLabel/fonts/mono_font = SubResource("FontFile_s0d3y")
-RichTextLabel/fonts/normal_font = ExtResource("1_oxc5u")
+RichTextLabel/fonts/normal_font = ExtResource("1_vjw7q")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_yusdk")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_vi6on")

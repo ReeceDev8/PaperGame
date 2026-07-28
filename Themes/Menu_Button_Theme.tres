@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://bpsut6q0js2xr"]
 
-[ext_resource type="FontFile" uid="uid://by625cp1o1r3v" path="res://Assets/Fonts/zai_RemingtonDeluxeTypewriter1938.ttf" id="1_73ywv"]
+[ext_resource type="FontFile" uid="uid://cmiko26fgky03" path="res://Assets/Fonts/m5x7.ttf" id="1_4nbsq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w0av"]
 content_margin_left = 4.0
@@ -90,7 +90,7 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("1_73ywv")
+Button/fonts/font = ExtResource("1_4nbsq")
 Button/styles/disabled = SubResource("StyleBoxFlat_7w0av")
 Button/styles/focus = SubResource("StyleBoxFlat_yusdk")
 Button/styles/hover = SubResource("StyleBoxFlat_q83w6")

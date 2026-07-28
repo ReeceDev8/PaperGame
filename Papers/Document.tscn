@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c86s7wpd52cna"]
+[gd_scene load_steps=7 format=3 uid="uid://c86s7wpd52cna"]
 
 [ext_resource type="Texture2D" uid="uid://d2a7344tb50gj" path="res://Assets/Images/Paper1.png" id="1_u5383"]
 [ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_4ne7r"]
@@ -7,10 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/AddText_maindoc.gd" id="5_baw4g"]
 [ext_resource type="Texture2D" uid="uid://ba7t6mplv6753" path="res://Assets/Images/ACCEPTED_Stamp.png" id="6_ksfky"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4e4na"]
-
-[node name="Document" type="TextureRect"]
-material = SubResource("ShaderMaterial_4e4na")
+[node name="Document" type="TextureRect" groups=["interactive_items"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,3 +90,6 @@ mouse_filter = 2
 theme = ExtResource("4_mn6ym")
 bbcode_enabled = true
 scroll_active = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

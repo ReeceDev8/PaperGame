@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://by625cp1o1r3v" path="res://Assets/Fonts/zai_RemingtonDeluxeTypewriter1938.ttf" id="1_sklhs"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="4_dda84"]
 [ext_resource type="PackedScene" uid="uid://bc3jiiegxvtw1" path="res://Scenes/OptionsMenu.tscn" id="5_uexxt"]
-[ext_resource type="Shader" path="res://Shaders/fullscreen_shader.gdshader" id="6_80v4n"]
+[ext_resource type="Shader" path="res://Shaders/fullscreen_dithering.gdshader" id="6_80v4n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srrr7"]
 shader = ExtResource("6_80v4n")

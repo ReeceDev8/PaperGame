@@ -31,7 +31,7 @@ func animate_persdoc_spawn(persdoc_node: Node) -> void:
 
 func animate_report_spawn(report_node: Node) -> void:
 	var tween = create_tween()
-	tween.tween_property(report_node, "global_position", Vector2(260, 270), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(report_node, "global_position", Vector2(260, 270), 2.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	await tween.finished
 
 func animate_document_handoff(doc_node: Node) -> void:

@@ -5,6 +5,8 @@ extends Control
 @onready var main_buttons = $VBoxContainer
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 @onready var menu_button = $"../Interface/menu_button"
+@onready var hand_sprite: Sprite2D = $"../CanvasLayer/Sprite2D"
+
 
 func _ready() -> void:
 	visible = false
@@ -34,8 +36,13 @@ func toggle_menu() -> void:
 	menu_button.visible = not visible
 	
 	if visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		hand_sprite.visible = false
 		main_buttons.visible = true
 		options_menu.visible = false
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		hand_sprite.visible = true
 
 func _on_close_menu_pressed() -> void:
 	toggle_menu()

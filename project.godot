@@ -48,6 +48,11 @@ folder_colors={
 "res://Themes/": "yellow"
 }
 
+[global_group]
+
+interactive_items=""
+hand_sprite=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
