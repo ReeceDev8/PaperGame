@@ -33,7 +33,7 @@ func increase_by_sec(delta_seconds: float) -> void:
 	minutes = minutes % 60
 	hours = hours % 24
 	
-	print(str(days) + ":" + str(hours) + ":" + str(minutes) + ":" + str(seconds))
+	# print(str(days) + ":" + str(hours) + ":" + str(minutes) + ":" + str(seconds))
 
 func reset() -> void:
 	seconds = 0

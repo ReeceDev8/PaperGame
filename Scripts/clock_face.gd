@@ -8,7 +8,7 @@ const MINUTE_HAND_LENGTH = 100
 @onready var hour_hand: Line2D = $HourHand
 @export var flash_interval: float = 0.5
 var flash_timer: float = 0.0
-var hour_till_close: int = 5
+
 
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		minute_hand.set_point_position(1, calculate_hand_tip_location(MINUTE))
 		hour_hand.set_point_position(1, calculate_hand_tip_location(HOUR))
 		
-		var flashing_time = TimeManager.date_time.hours >= hour_till_close
+		var flashing_time = TimeManager.date_time.hours >= globals.closing_hour - 1
 		
 		if flashing_time:
 			flash_timer += delta

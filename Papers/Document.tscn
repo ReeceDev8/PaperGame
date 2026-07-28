@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://c86s7wpd52cna"]
+[gd_scene load_steps=8 format=3 uid="uid://c86s7wpd52cna"]
 
-[ext_resource type="Shader" path="res://Shaders/dithering.gdshader" id="1_tpixp"]
 [ext_resource type="Texture2D" uid="uid://d2a7344tb50gj" path="res://Assets/Images/Paper1.png" id="1_u5383"]
 [ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_4ne7r"]
 [ext_resource type="Texture2D" uid="uid://ddt0aggvggxic" path="res://Assets/Images/Denied_Stamp.png" id="3_00hpd"]
@@ -9,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ba7t6mplv6753" path="res://Assets/Images/ACCEPTED_Stamp.png" id="6_ksfky"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4e4na"]
-shader = ExtResource("1_tpixp")
-shader_parameter/gamma = 2.5
 
 [node name="Document" type="TextureRect"]
 material = SubResource("ShaderMaterial_4e4na")

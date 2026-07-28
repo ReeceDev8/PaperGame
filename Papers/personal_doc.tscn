@@ -1,18 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7pys6vokafe"]
+[gd_scene load_steps=5 format=3 uid="uid://dp7pys6vokafe"]
 
 [ext_resource type="Texture2D" uid="uid://d1aoqbac45fg1" path="res://Assets/Images/Personal_Doc.png" id="1_115t3"]
-[ext_resource type="Shader" path="res://Shaders/dithering.gdshader" id="1_w83pm"]
 [ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_tim15"]
 [ext_resource type="Script" path="res://Scripts/AddText_persdoc.gd" id="3_65wh8"]
 [ext_resource type="Theme" uid="uid://dnkrursd8f1ng" path="res://Themes/Document_Text_Theme.tres" id="4_3mlon"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4cved"]
-shader = ExtResource("1_w83pm")
-shader_parameter/gamma = 2.0
-
 [node name="PersonalDoc" type="TextureRect"]
 z_index = 4
-material = SubResource("ShaderMaterial_4cved")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

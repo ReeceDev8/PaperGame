@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://pkcw8ime0nwe"]
+[gd_scene load_steps=8 format=3 uid="uid://pkcw8ime0nwe"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_34ygv"]
 [ext_resource type="Theme" uid="uid://bpsut6q0js2xr" path="res://Themes/Menu_Button_Theme.tres" id="1_kkgva"]
 [ext_resource type="FontFile" uid="uid://by625cp1o1r3v" path="res://Assets/Fonts/zai_RemingtonDeluxeTypewriter1938.ttf" id="1_sklhs"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="4_dda84"]
 [ext_resource type="PackedScene" uid="uid://bc3jiiegxvtw1" path="res://Scenes/OptionsMenu.tscn" id="5_uexxt"]
+[ext_resource type="Shader" path="res://Shaders/fullscreen_shader.gdshader" id="6_80v4n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srrr7"]
+shader = ExtResource("6_80v4n")
+shader_parameter/bayer_amount = 0.25
+shader_parameter/color_levels = 8.0
 
 [node name="MainMenu" type="Control"]
 z_index = 100
@@ -76,6 +82,17 @@ layout_mode = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_uexxt")]
 layout_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_srrr7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]

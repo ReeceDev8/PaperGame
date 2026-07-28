@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if has_transitioned:
 		return
 	
-	if TimeManager.date_time.hours != 6:
+	if TimeManager.date_time.hours != globals.closing_hour:
 		return
 	else:
 		# print("Transitioning... (instance ", self.get_instance_id(), ", hours=", TimeManager.date_time.hours, ")")
