@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c86s7wpd52cna"]
+[gd_scene load_steps=8 format=3 uid="uid://c86s7wpd52cna"]
 
 [ext_resource type="Texture2D" uid="uid://d2a7344tb50gj" path="res://Assets/Images/Paper1.png" id="1_u5383"]
 [ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_4ne7r"]
 [ext_resource type="Texture2D" uid="uid://ddt0aggvggxic" path="res://Assets/Images/Denied_Stamp.png" id="3_00hpd"]
+[ext_resource type="Texture2D" uid="uid://cstrblw0ep5fq" path="res://Assets/Images/Document_Grabbed.png" id="3_un2du"]
 [ext_resource type="Theme" uid="uid://dnkrursd8f1ng" path="res://Themes/Document_Text_Theme.tres" id="4_mn6ym"]
 [ext_resource type="Script" path="res://Scripts/AddText_maindoc.gd" id="5_baw4g"]
 [ext_resource type="Texture2D" uid="uid://ba7t6mplv6753" path="res://Assets/Images/ACCEPTED_Stamp.png" id="6_ksfky"]
@@ -18,6 +19,8 @@ grow_vertical = 2
 texture = ExtResource("1_u5383")
 stretch_mode = 2
 script = ExtResource("2_4ne7r")
+document_primary_texture = ExtResource("1_u5383")
+document_grabbed_texture = ExtResource("3_un2du")
 
 [node name="Text" type="Control" parent="."]
 anchors_preset = 0

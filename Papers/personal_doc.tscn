@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp7pys6vokafe"]
+[gd_scene load_steps=6 format=3 uid="uid://dp7pys6vokafe"]
 
 [ext_resource type="Texture2D" uid="uid://d1aoqbac45fg1" path="res://Assets/Images/Personal_Doc.png" id="1_115t3"]
 [ext_resource type="Script" path="res://Scripts/Draggable_maindoc.gd" id="2_tim15"]
+[ext_resource type="Texture2D" uid="uid://d0htcwub8f0j1" path="res://Assets/Images/2.Persdoc_Grabbed.png" id="3_4xrl5"]
 [ext_resource type="Script" path="res://Scripts/AddText_persdoc.gd" id="3_65wh8"]
 [ext_resource type="Theme" uid="uid://dnkrursd8f1ng" path="res://Themes/Document_Text_Theme.tres" id="4_3mlon"]
 
@@ -17,6 +18,8 @@ grow_vertical = 2
 texture = ExtResource("1_115t3")
 script = ExtResource("2_tim15")
 doc_type = "Pers"
+document_primary_texture = ExtResource("1_115t3")
+document_grabbed_texture = ExtResource("3_4xrl5")
 
 [node name="Text" type="Control" parent="."]
 anchors_preset = 0

@@ -24,6 +24,8 @@ var current_decision : String = "none"
 var current_visitor_year : String = ""
 var handed_over_docs = []
 var has_transitioned = false
+var dismissed = false
+
 
 # Debug stuff
 #var _debug_accum: float = 0.0
@@ -41,25 +43,20 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
-	# Debug stuff
-	#_debug_accum += delta
-	#if _debug_accum >= DEBUG_INTERVAL:
-		#_debug_accum -= DEBUG_INTERVAL
-		#print("instance ", self.get_instance_id(), ", hours=", TimeManager.date_time.hours)
-	
 	if has_transitioned:
 		return
 	
 	if TimeManager.date_time.hours != globals.closing_hour:
 		return
-	else:
-		# print("Transitioning... (instance ", self.get_instance_id(), ", hours=", TimeManager.date_time.hours, ")")
+	elif dismissed:
 		has_transitioned = true
 		TimeManager.pause_time()
 		SceneTransitionAnimation.play("fade_in")
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/PostDayScreen.tscn")
-	
+	else:
+		TimeManager.pause_time()
+
 func reset_state() -> void:
 	current_state = GameState.WAITING_FOR_VISITOR
 	
@@ -170,6 +167,7 @@ func start_dismissal():
 	dialogue_manager.show_dismissal(current_decision)
 	visitor_manager.walk_out(current_decision)
 	await get_tree().create_timer(1.5).timeout
+	dismissed = true
 	administer_slip()
 	handed_over_docs.clear()
 	
@@ -199,6 +197,7 @@ func _on_turn_reset():
 	if is_instance_valid(current_document_instance):
 		current_document_instance.queue_free()
 	
+	dismissed = false
 	is_first_visitor = false
 	current_decision = "none"
 	RulesEngine.maindoc_ID = ""

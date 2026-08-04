@@ -7,6 +7,7 @@ class_name SoundManager
 @export var scanner_sound: AudioStream
 @export var maindoc_print_sound: AudioStream
 @export var report_print_sound: AudioStream
+@export var bell_toll: AudioStream
 
 func play_sfx(stream: AudioStream) -> void:
 	var temp_player = AudioStreamPlayer.new()

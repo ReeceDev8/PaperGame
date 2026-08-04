@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://mfgmki4qqsin"]
+[gd_scene load_steps=46 format=3 uid="uid://mfgmki4qqsin"]
 
 [ext_resource type="Script" path="res://Scripts/MainScreen.gd" id="1_du70v"]
 [ext_resource type="Texture2D" uid="uid://b145t3vd4n2b" path="res://Assets/Images/Printer.png" id="3_x0k1s"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://b1vbpfpjo7khc" path="res://Assets/Audio/Printer.wav" id="25_3a2k3"]
 [ext_resource type="PackedScene" uid="uid://bb5s7vacslhld" path="res://Scenes/SceneTransitionAnimation.tscn" id="26_oy7fj"]
 [ext_resource type="PackedScene" uid="uid://b4eg1dsty2jd6" path="res://Scenes/InGameMenu.tscn" id="27_tbpf5"]
+[ext_resource type="AudioStream" uid="uid://h12wdsowuhl5" path="res://Assets/Audio/bell-toll.ogg" id="29_xuca7"]
 [ext_resource type="Shader" path="res://Shaders/fullscreen_dithering.gdshader" id="30_kiemm"]
 [ext_resource type="Texture2D" uid="uid://cglxigdrihwtv" path="res://Assets/Images/HandSprite.png" id="31_s35sy"]
 [ext_resource type="Script" path="res://Scripts/handmotion.gd" id="32_8cxi2"]
@@ -334,6 +335,7 @@ bell_sound = ExtResource("16_xl6rf")
 scanner_sound = ExtResource("23_8kldb")
 maindoc_print_sound = ExtResource("24_fa22d")
 report_print_sound = ExtResource("25_3a2k3")
+bell_toll = ExtResource("29_xuca7")
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("26_oy7fj")]
 z_index = 100
