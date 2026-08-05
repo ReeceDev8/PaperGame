@@ -42,3 +42,4 @@ func animate_document_handoff(doc_node: Node) -> void:
 	anim.tween_property(doc_node, "global_position:y", drop_target_y, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	anim.tween_property(doc_node, "modulate:a", 0.0, 0.2)
 	anim.finished.connect(doc_node.queue_free)
+	await anim.finished

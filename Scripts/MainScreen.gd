@@ -13,6 +13,7 @@ var persdoc_blueprint = preload("res://Papers/personal_doc.tscn")
 @onready var visitor_manager: VisitorManager = $VisitorSystem
 @onready var animation_manager: AnimationManager = $AnimationManager
 @onready var sound_manager: SoundManager = $SoundManager
+@onready var bell_button: Button = $Interface/BellButton
 
 enum GameState { WAITING_FOR_VISITOR, CALLED_FOR_VISITOR, VISITOR_ARRIVED, DOCUMENT_ACTIVE, VISITOR_LEAVING }
 var is_first_visitor = true
@@ -26,14 +27,7 @@ var handed_over_docs = []
 var has_transitioned = false
 var dismissed = false
 
-
-# Debug stuff
-#var _debug_accum: float = 0.0
-#const DEBUG_INTERVAL: float = 0.5
-
-
 func _ready():
-	# print("MainScreen instance active ID: ", self.get_instance_id())
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	TimeManager.reset_time()
 	TimeManager.pause_time()
@@ -42,15 +36,16 @@ func _ready():
 	reset_state()
 
 func _physics_process(delta: float) -> void:
-	
 	if has_transitioned:
 		return
 	
 	if TimeManager.date_time.hours != globals.closing_hour:
 		return
-	elif dismissed:
+	elif dismissed or current_state == GameState.WAITING_FOR_VISITOR:
+		bell_button.disabled = true
 		has_transitioned = true
 		TimeManager.pause_time()
+		await get_tree().create_timer(2.5).timeout
 		SceneTransitionAnimation.play("fade_in")
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/PostDayScreen.tscn")
@@ -167,10 +162,10 @@ func start_dismissal():
 	dialogue_manager.show_dismissal(current_decision)
 	visitor_manager.walk_out(current_decision)
 	await get_tree().create_timer(1.5).timeout
-	dismissed = true
 	administer_slip()
+	dismissed = true
 	handed_over_docs.clear()
-	
+
 func administer_slip():
 	var evaluation : String = ""
 	current_slip_instance = paperslip_blueprint.instantiate()

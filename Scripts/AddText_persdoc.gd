@@ -57,6 +57,7 @@ func _set_blood_type() -> String:
 	var bloodtype_options: Array[String] = ["A", "B", "O"]
 	var posorneg_options: Array[String] = ["+", "-"]
 	var bloodtype = ""
+
 	if randf() > 0.3:
 		bloodtype = bloodtype_options[randi_range(0, 1)] + posorneg_options[0]
 		return bloodtype
