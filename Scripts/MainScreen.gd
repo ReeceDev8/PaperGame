@@ -29,6 +29,7 @@ var dismissed = false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	globals.current_day += 1
 	TimeManager.reset_time()
 	TimeManager.pause_time()
 	SceneTransitionAnimation.play("fade_out")

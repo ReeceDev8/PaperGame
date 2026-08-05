@@ -8,6 +8,7 @@ extends Control
 @onready var blocker_label: RichTextLabel = $VBoxContainer/BlockerLabel
 @onready var money_label: RichTextLabel = $VBoxContainer/MoneyLabel
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
+@onready var day_label: RichTextLabel = $VBoxContainer/DayLabel
 
 var stats = "Stats"
 var number_correct = globals.number_correct
@@ -26,6 +27,7 @@ func _ready() -> void:
 						debt_label,
 						money_label]
 						
+	day_label.text = "[center]Day %d[/center]" % globals.current_day
 	stats_label.text = "[center]" + stats + "[/center]"
 	correct_label.text = "Correct Evaluations: " + str(number_correct)
 	incorrect_label.text = "Incorrect Evaluations: " + str(number_incorrect)

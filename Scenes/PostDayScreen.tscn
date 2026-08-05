@@ -1441,6 +1441,12 @@ offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="DayLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6frqd")
+bbcode_enabled = true
+fit_content = true
+
 [node name="StatsLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_6frqd")
